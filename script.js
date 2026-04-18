@@ -98,10 +98,14 @@ function work(){
                     secondNumber=0;
                     secondNumber+=value;
                     display.textContent=secondNumber.toString();
+                    
                 }
                 if(secondNumber!=""){
-                    secondNumber+=value;
-                    display.textContent=secondNumber.toString();  
+                    if(!secondNumber.includes(".")){
+                        secondNumber+=value;
+                    display.textContent=secondNumber.toString(); 
+                    }
+                     
                 }
                 }
                 else{

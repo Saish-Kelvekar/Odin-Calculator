@@ -60,7 +60,22 @@ function work(){
                 operator="";
                 display.textContent="";
             }
+            if(type=="backspace"){
+                if(secondNumber!=""){
+                    secondNumber=secondNumber.slice(0,-1);
+                    display.textContent=secondNumber.toString();
+                }
 
+                if(operator!="" && secondNumber==""){
+                    operator="";
+                    display.textContent="";
+                }
+
+                if(firstNumber!="" && operator==""){
+                    firstNumber=firstNumber.slice(0,-1);
+                    display.textContent=firstNumber.toString();
+                }
+            }
         });
         
     });

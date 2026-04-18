@@ -2,7 +2,8 @@ const add=(a,b)=>{return Math.round((Number(a)+Number(b))*100)/100;};
 const sub=(a,b)=>{return Math.round((Number(a)-Number(b))*100)/100;};
 const mul=(a,b)=>{return Math.round((Number(a)*Number(b))*100)/100;};
 const div=(a,b)=>{return Math.round((Number(a)/Number(b))*100)/100;};
-
+const power=(a,b)=>{return Math.round((Math.pow(Number(a),Number(b)))*100)/100;};
+const mod=(a,b)=>{return Math.round((Number(a)% Number(b))*100)/100; };
 function operate(opr,a,b){
     switch(opr){
         case "+":return add(a,b);
@@ -13,6 +14,8 @@ function operate(opr,a,b){
                 return;
                 }
                 return div(a,b);
+        case "xy":return power(a,b);
+        case "%" :return mod(a,b);
         default:alert("unrecognized operation");
     }
 }

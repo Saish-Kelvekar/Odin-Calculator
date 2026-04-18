@@ -1,7 +1,7 @@
-const add=(a,b)=>{return Number(a)+Number(b);};
-const sub=(a,b)=>{return Number(a)-Number(b);};
-const mul=(a,b)=>{return Number(a)*Number(b);};
-const div=(a,b)=>{return Number(a)/Number(b);};
+const add=(a,b)=>{return Math.round((Number(a)+Number(b))*100)/100;};
+const sub=(a,b)=>{return Math.round((Number(a)-Number(b))*100)/100;};
+const mul=(a,b)=>{return Math.round((Number(a)*Number(b))*100)/100;};
+const div=(a,b)=>{return Math.round((Number(a)/Number(b))*100)/100;};
 
 function operate(opr,a,b){
     switch(opr){
@@ -60,6 +60,8 @@ function work(){
                 operator="";
                 display.textContent="";
             }
+
+            // logic for the backspace
             if(type=="backspace"){
                 if(secondNumber!=""){
                     secondNumber=secondNumber.slice(0,-1);
@@ -75,6 +77,35 @@ function work(){
                     firstNumber=firstNumber.slice(0,-1);
                     display.textContent=firstNumber.toString();
                 }
+            }
+
+            if(type=="decimal"){
+                if(!display.textContent.includes(".")){
+                    if(firstNumber==""){
+                    firstNumber=0;
+                    firstNumber+=value;
+                    display.textContent=firstNumber.toString();
+                    
+                }
+                else if(firstNumber!="" && operator==""){
+                    firstNumber+=value;
+                    display.textContent=firstNumber.toString();
+                }
+                if(secondNumber=="" && operator!=""){
+                    secondNumber=0;
+                    secondNumber+=value;
+                    display.textContent=secondNumber.toString();
+                }
+                if(secondNumber!=""){
+                    secondNumber+=value;
+                    display.textContent=secondNumber.toString();  
+                }
+                }
+                else{
+                    const btn=document.getElementById("#decimal");
+                    btn.disabled=true;
+                }
+                
             }
         });
         

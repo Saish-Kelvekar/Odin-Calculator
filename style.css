@@ -63,7 +63,10 @@ button{
     font-weight:bolder;
     font-size: 30px;
     font-family:'Scientific Calculator LCD', sans-serif ;
-    text-align: right;
+    
+    display: flex;
+    justify-content: right;
+    align-items: center;
     
     color: white;
     border-radius: 10%;
